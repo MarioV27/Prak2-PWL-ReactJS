@@ -17,7 +17,7 @@ export const Project = () => {
       fetchProjects();
     },[]);
 
-    for(i=0;i<projectleg;i++){
+    for(const i=0;i<projectleg;i++){
     return(
       <p>
         <p>{project.project[i].nama}</p>
