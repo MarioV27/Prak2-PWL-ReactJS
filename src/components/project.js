@@ -15,17 +15,14 @@ export const Project = () => {
       fetchProjects();
     },[]);
 
-    console.log(project.project.length)
 
-    for(const i=0;i<project.project.length;i++){
     return(
       <p>
-      <p>{project.project[i].nama}</p>
-      <p>{project.project[i].deskripsi}</p>
-      <p>{project.project[i].tools}</p>
+      <p>{project.project[0].nama}</p>
+      <p>{project.project[0].deskripsi}</p>
+      <p>{project.project[0].tools}</p>
       </p>
     );
-  }
     
 };
 
