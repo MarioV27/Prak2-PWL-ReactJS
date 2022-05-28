@@ -5,11 +5,9 @@ import axios from "axios";
 export const Project = () => {
     const styles = style();
     const [project, setProject] = useState({});
-    const [projectleg, setProjectleg] = useState("");
     const fetchProjects = async () => {
       const res = await axios.get('https://server-mariovebriyanto.herokuapp.com/api/project')
       console.log(res.data)
-      setProjectleg(res.data.length)
       setProject(res.data)
       };
   
@@ -17,14 +15,18 @@ export const Project = () => {
       fetchProjects();
     },[]);
 
-    for(const i=0;i<projectleg;i++){
+    console.log(project.project.length)
+
+    for(const i=0;i<project.project.length;i++){
     return(
       <p>
-        <p>{project.project[i].nama}</p>
-        <p>{project.project[i].deskripsi}</p>
-        <p>{project.project[i].tools}</p>
+      <p>{project.project[i].nama}</p>
+      <p>{project.project[i].deskripsi}</p>
+      <p>{project.project[i].tools}</p>
       </p>
-    );}
+    );
+  }
+    
 };
 
 const style = createUseStyles({
@@ -58,26 +60,3 @@ const style = createUseStyles({
 });
 
 export default Project;
-
-// import React, { useState, useEffect } from "react"
-// import { createUseStyles } from "react-jss";
-
-// export const Skill = () => {
-//     const styles = style();
-    
-//     const [project, newproject] = useState({})
-
-    
-// };
-
-// const style = createUseStyles({
-//     navbar2: {
-//         listStyle: "none",
-//         position: "relative",
-//     },
-//     navbar3: {
-//         margin: "7px",
-//     }
-// });
-
-// export default Skill;
